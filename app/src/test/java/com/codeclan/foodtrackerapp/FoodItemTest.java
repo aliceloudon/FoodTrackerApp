@@ -35,5 +35,5 @@ public class FoodItemTest {
         assertEquals("19 March 2017", foodItem.getDate());
 
     }
-    
+
 }
