@@ -47,11 +47,6 @@ public class AddFoodItemActivity extends AppCompatActivity {
 
         FoodItem foodItem = new FoodItem(new_food, new_meal, new_day, new_month);
 
-
-
-//        FoodList foodList = new FoodList();
-//        foodList.addNewFoodItem(foodItem);
-
         SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
         String listAsString = sharedPreferences.getString("foodList", "whatever");
 
@@ -62,15 +57,9 @@ public class AddFoodItemActivity extends AppCompatActivity {
 
         newFoodListArray.add(foodItem);
 
-
-
-
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("foodList", gson.toJson(newFoodListArray));
         editor.apply();
-
-
-
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);

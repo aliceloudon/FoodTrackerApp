@@ -32,15 +32,19 @@ public class FoodListAdapter extends ArrayAdapter<FoodItem> {
 
         TextView food = (TextView) listItemView.findViewById(R.id.food);
         food.setText(currentFoodItem.getFood().toString());
+        food.setTag(currentFoodItem);
 
         TextView meal = (TextView) listItemView.findViewById(R.id.meal);
         meal.setText(currentFoodItem.getMeal().toString());
+        meal.setTag(currentFoodItem);
 
         TextView day = (TextView) listItemView.findViewById(R.id.day);
         day.setText(currentFoodItem.getDay().toString());
+        day.setTag(currentFoodItem);
 
         TextView month = (TextView) listItemView.findViewById(R.id.month);
         month.setText(currentFoodItem.getMonth().toString());
+        month.setTag(currentFoodItem);
 
         return listItemView;
 

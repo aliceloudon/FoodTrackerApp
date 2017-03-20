@@ -34,8 +34,6 @@ public class FoodListActivity extends AppCompatActivity {
         TypeToken<ArrayList<FoodItem>> typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
         ArrayList<FoodItem> list = gson.fromJson(listAsString,typeNewFoodListArray.getType());
 
-
-
         FoodListAdapter foodListAdapter = new FoodListAdapter(this,list);
 
         ListView listView = (ListView)findViewById(R.id.list);
@@ -46,6 +44,17 @@ public class FoodListActivity extends AppCompatActivity {
 
     public void setNewEntryButtonClicked(View button){
         Intent intent = new Intent(this, AddFoodItemActivity.class);
+        startActivity(intent);
+    }
+
+    public void onFoodItemClicked(View textView){
+        TextView meal = (TextView) textView;
+        FoodItem foodItem = (FoodItem) textView.getTag();
+
+        Intent intent = new Intent(this, ViewFoodItemActivity.class);
+        intent.putExtra("foodItemMeal", foodItem.getMeal());
+        intent.putExtra("foodItemFood", foodItem.getFood());
+
         startActivity(intent);
     }
 
