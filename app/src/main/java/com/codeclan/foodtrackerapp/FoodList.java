@@ -1,8 +1,13 @@
 package com.codeclan.foodtrackerapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -10,9 +15,11 @@ import java.util.ArrayList;
  * Created by user on 19/03/2017.
  */
 
-public class FoodList {
+public class FoodList extends AppCompatActivity {
 
-    private ArrayList<FoodItem> list;
+    public static final String FOODLIST = "foodList";
+
+    ArrayList<FoodItem> list;
 
     public FoodList() {
         list = new ArrayList<FoodItem>();
@@ -27,6 +34,10 @@ public class FoodList {
 
     public void addNewFoodItem(FoodItem foodItem) {
         list.add(foodItem);
+    }
+
+    public void deleteFoodItem(FoodItem foodItem){
+        list.remove(foodItem);
     }
 
 }
