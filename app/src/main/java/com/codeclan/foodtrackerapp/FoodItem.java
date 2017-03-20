@@ -8,12 +8,14 @@ public class FoodItem {
 
     private String food;
     private String meal;
-    private String date;
+    private String day;
+    private String month;
 
-    public FoodItem(String food, String meal, String date) {
+    public FoodItem(String food, String meal, String day, String month) {
         this.food = food;
         this.meal = meal;
-        this.date = date;
+        this.day = day;
+        this.month = month;
     }
 
     public String getFood() {
@@ -32,11 +34,19 @@ public class FoodItem {
         this.meal = meal;
     }
 
-    public String getDate() {
-        return date;
+    public String getDay() {
+        return day;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

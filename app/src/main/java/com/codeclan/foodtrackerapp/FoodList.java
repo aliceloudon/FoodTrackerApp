@@ -12,9 +12,9 @@ public class FoodList {
 
     public FoodList() {
         list = new ArrayList<FoodItem>();
-        list.add(new FoodItem("Stir Fry", "Supper", "19 March 2017"));
-        list.add(new FoodItem("Tomato Soup", "Lunch", "19 March 2017"));
-        list.add(new FoodItem("Porridge", "Breakfast", "19 March 2017"));
+        list.add(new FoodItem("Stir Fry", "Supper", "19", "March"));
+        list.add(new FoodItem("Tomato Soup", "Lunch", "19", "March"));
+        list.add(new FoodItem("Porridge", "Breakfast", "19", "March"));
     }
 
     public ArrayList<FoodItem> getList() {
