@@ -18,7 +18,7 @@
             android:layout_gravity="left"/>
 
         <EditText
-            android:id="@+id/day"
+            android:id="@+id/add_day"
             android:hint="e.g. 19"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -42,7 +42,7 @@
             android:layout_gravity="left"/>
 
         <EditText
-            android:id="@+id/month"
+            android:id="@+id/add_month"
             android:hint="e.g. March"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -66,7 +66,7 @@
             android:layout_gravity="left"/>
 
         <EditText
-            android:id="@+id/meal"
+            android:id="@+id/add_meal"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             android:layout_gravity="left"/>
 
         <EditText
-            android:id="@+id/food"
+            android:id="@+id/add_food"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -99,11 +99,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/save_button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Save"
-        android:onClick="setSaveButtonClicked"/>
+        android:onClick="onSaveButtonClicked"/>
 
 </LinearLayout>

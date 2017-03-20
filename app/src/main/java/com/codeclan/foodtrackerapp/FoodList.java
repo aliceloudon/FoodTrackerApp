@@ -25,4 +25,8 @@ public class FoodList {
         return new ArrayList<FoodItem>(list);
     }
 
+    public void addNewFoodItem(FoodItem foodItem) {
+        list.add(foodItem);
+    }
+
 }
