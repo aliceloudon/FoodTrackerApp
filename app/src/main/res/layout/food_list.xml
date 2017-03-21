@@ -3,56 +3,81 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/all_button"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="ALL"
-            android:onClick="setAllButtonClicked"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/january_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="JANUARY"
-            android:onClick="setJanuaryButtonClicked"/>
+            <Button
+                android:id="@+id/all_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ALL"
+                android:onClick="setAllButtonClicked"/>
 
-        <Button
-            android:id="@+id/february_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="FEBRUARY"
-            android:onClick="setFebruaryButtonClicked"/>
+            <Button
+                android:id="@+id/january_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="JANUARY"
+                android:onClick="setJanuaryButtonClicked"/>
 
-        <Button
-            android:id="@+id/march_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="MARCH"
-            android:onClick="setMarchButtonClicked"/>
+            <Button
+                android:id="@+id/february_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="FEBRUARY"
+                android:onClick="setFebruaryButtonClicked"/>
 
-        <Button
-            android:id="@+id/april_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="APRIL"
-            android:onClick="setAprilButtonClicked"/>
+            <Button
+                android:id="@+id/march_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MARCH"
+                android:onClick="setMarchButtonClicked"/>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/april_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="APRIL"
+                android:onClick="setAprilButtonClicked"/>
+
+            <Button
+                android:id="@+id/may_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MAY"
+                android:onClick="setMayButtonClicked"/>
+
+            <Button
+                android:id="@+id/june_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="JUNE"
+                android:onClick="setJuneButtonClicked"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <ListView
         android:id="@+id/list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
     </ListView>
 
     <Button

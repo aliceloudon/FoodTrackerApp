@@ -83,6 +83,30 @@ public class MonthlyActivity extends AppCompatActivity {
             }
         }
 
+        else if (input.equals("May")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("May")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("June")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("June")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
         FoodListAdapter foodListAdapter = new FoodListAdapter(this,newFoodListArray);
 
         ListView listView = (ListView)findViewById(R.id.list);
