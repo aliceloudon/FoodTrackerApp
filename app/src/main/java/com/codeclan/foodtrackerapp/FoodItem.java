@@ -1,10 +1,12 @@
 package com.codeclan.foodtrackerapp;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 19/03/2017.
  */
 
-public class FoodItem {
+public class FoodItem implements Serializable {
 
     private String food;
     private String meal;
@@ -16,6 +18,7 @@ public class FoodItem {
         this.meal = meal;
         this.day = day;
         this.month = month;
+
     }
 
     public String getFood() {

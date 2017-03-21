@@ -5,21 +5,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class FoodListActivity extends AppCompatActivity {
 
     public static final String FOODLIST = "foodList";
 
     Button newDiaryEntry;
+    ArrayList<FoodItem> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,13 @@ public class FoodListActivity extends AppCompatActivity {
 
         TypeToken<ArrayList<FoodItem>> typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
         ArrayList<FoodItem> list = gson.fromJson(listAsString,typeNewFoodListArray.getType());
+
+        Collections.sort(list, new Comparator<FoodItem>() {
+            @Override
+            public int compare(FoodItem foodItem, FoodItem t1) {
+                return 0;
+            }
+        });
 
         FoodListAdapter foodListAdapter = new FoodListAdapter(this,list);
 
@@ -52,9 +64,20 @@ public class FoodListActivity extends AppCompatActivity {
         FoodItem foodItem = (FoodItem) textView.getTag();
 
         Intent intent = new Intent(this, ViewFoodItemActivity.class);
-        intent.putExtra("foodItemMeal", foodItem.getMeal());
-        intent.putExtra("foodItemFood", foodItem.getFood());
 
+        intent.putExtra("foodItem", foodItem);
+
+        startActivity(intent);
+    }
+
+    public void setDeleteButtonClicked(View textView){
+
+        TextView meal = (TextView) textView;
+        FoodItem foodItem = (FoodItem) textView.getTag();
+
+        list.remove(foodItem);
+
+        Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
     }
 
