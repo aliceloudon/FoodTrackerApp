@@ -3,6 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/all_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ALL"
+            android:onClick="setAllButtonClicked"/>
+
+        <Button
+            android:id="@+id/march_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="MARCH"
+            android:onClick="setMarchButtonClicked"/>
+
+        <Button
+            android:id="@+id/april_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="APRIL"
+            android:onClick="setAprilButtonClicked"/>
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/list"
         android:layout_width="wrap_content"

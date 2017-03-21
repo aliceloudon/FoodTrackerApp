@@ -57,9 +57,15 @@ public class AddFoodItemActivity extends AppCompatActivity {
 
         newFoodListArray.add(foodItem);
 
+
+
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("foodList", gson.toJson(newFoodListArray));
         editor.apply();
+
+
+
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);

@@ -83,4 +83,9 @@ public class FoodListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setMarchButtonClicked(View button){
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        startActivity(intent);
+    }
+
 }
