@@ -20,7 +20,6 @@ public class MonthlyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_list);
 
-
         Gson gson = new Gson();
         SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
         String listAsString = sharedPreferences.getString("foodList", "whatever");
@@ -44,6 +43,5 @@ public class MonthlyActivity extends AppCompatActivity {
 
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(foodListAdapter);
-
     }
 }

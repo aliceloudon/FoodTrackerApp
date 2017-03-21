@@ -38,7 +38,6 @@ public class ViewFoodItemActivity extends AppCompatActivity {
 
         itemFood = (TextView)findViewById(R.id.item_food);
         itemFood.setText(input_food);
-
     }
 
     public void onDeleteButtonClicked(View button){
@@ -50,10 +49,6 @@ public class ViewFoodItemActivity extends AppCompatActivity {
 
         TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
         ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
-
-
-
-
 
         newFoodListArray.remove(foodItem);
         Log.d("Food item removed", String.valueOf(newFoodListArray.size()));
