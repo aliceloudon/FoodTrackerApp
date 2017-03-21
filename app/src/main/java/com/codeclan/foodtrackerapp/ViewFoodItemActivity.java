@@ -19,6 +19,8 @@ public class ViewFoodItemActivity extends AppCompatActivity {
     public static final String FOODLIST = "foodList";
     TextView itemMeal;
     TextView itemFood;
+    TextView itemDay;
+    TextView itemMonth;
     FoodItem foodItem;
 
     @Override
@@ -30,8 +32,16 @@ public class ViewFoodItemActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         foodItem = (FoodItem)extras.getSerializable("foodItem");
 
+        String input_day = foodItem.getDay();
+        String input_month = foodItem.getMonth();
         String input_meal = foodItem.getMeal();
         String input_food = foodItem.getFood();
+
+        itemDay = (TextView)findViewById(R.id.item_day);
+        itemDay.setText(input_day);
+
+        itemMonth = (TextView)findViewById(R.id.item_month);
+        itemMonth.setText(input_month);
 
         itemMeal = (TextView)findViewById(R.id.item_meal);
         itemMeal.setText(input_meal);
@@ -39,26 +49,4 @@ public class ViewFoodItemActivity extends AppCompatActivity {
         itemFood = (TextView)findViewById(R.id.item_food);
         itemFood.setText(input_food);
     }
-
-    public void onDeleteButtonClicked(View button){
-
-        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
-        String listAsString = sharedPreferences.getString("foodList", "whatever");
-
-        Gson gson = new Gson();
-
-        TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
-        ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
-
-        newFoodListArray.remove(foodItem);
-        Log.d("Food item removed", String.valueOf(newFoodListArray.size()));
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("foodList", gson.toJson(newFoodListArray));
-        editor.apply();
-
-        Intent intent = new Intent(this, FoodListActivity.class);
-        startActivity(intent);
-    }
-
 }

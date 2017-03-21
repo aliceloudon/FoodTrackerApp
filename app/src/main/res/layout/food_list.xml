@@ -16,6 +16,22 @@
             android:onClick="setAllButtonClicked"/>
 
         <Button
+            android:id="@+id/january_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="JANUARY"
+            android:onClick="setJanuaryButtonClicked"/>
+
+        <Button
+            android:id="@+id/february_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="FEBRUARY"
+            android:onClick="setFebruaryButtonClicked"/>
+
+        <Button
             android:id="@+id/march_button"
             android:layout_width="100dp"
             android:layout_height="wrap_content"

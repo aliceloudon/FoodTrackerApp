@@ -31,14 +31,56 @@ public class MonthlyActivity extends AppCompatActivity {
 
         ArrayList<FoodItem>objectsToRemove = new ArrayList<>();
 
-        for (int i=0; i<newFoodListArray.size(); i++){
-            if (!newFoodListArray.get(i).getMonth().equals("March")){
-               objectsToRemove.add(newFoodListArray.get(i));
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        String input = extras.getString("input");
+
+        if (input.equals("January")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("January")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
             }
         }
 
-        for (FoodItem foodItem : objectsToRemove){
-            newFoodListArray.remove(foodItem);
+        if (input.equals("February")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("February")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        if (input.equals("March")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("March")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("April")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("April")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
         }
 
         FoodListAdapter foodListAdapter = new FoodListAdapter(this,newFoodListArray);

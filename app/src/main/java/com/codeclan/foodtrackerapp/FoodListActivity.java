@@ -83,8 +83,31 @@ public class FoodListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void setMarchButtonClicked(View button){
+    public void setJanuaryButtonClicked(View button){
+        String input = "January";
         Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setFebruaryButtonClicked(View button){
+        String input = "February";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setMarchButtonClicked(View button){
+        String input = "March";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setAprilButtonClicked(View button){
+        String input = "April";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
         startActivity(intent);
     }
 
