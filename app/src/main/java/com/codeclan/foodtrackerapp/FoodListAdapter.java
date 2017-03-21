@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,6 +46,9 @@ public class FoodListAdapter extends ArrayAdapter<FoodItem> {
         TextView month = (TextView) listItemView.findViewById(R.id.month);
         month.setText(currentFoodItem.getMonth().toString());
         month.setTag(currentFoodItem);
+
+        Button button = (Button) listItemView.findViewById(R.id.delete_button);
+        button.setTag(position);
 
         return listItemView;
 
