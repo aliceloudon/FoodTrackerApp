@@ -1,9 +1,11 @@
 package com.codeclan.foodtrackerapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -44,4 +46,33 @@ public class MonthlyActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(foodListAdapter);
     }
+
+    public void setDeleteButtonClicked(View button){
+        int foodItemPosition = (int) button.getTag();
+
+        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
+        String listAsString = sharedPreferences.getString("foodList", "whatever");
+
+        Gson gson = new Gson();
+
+        TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
+        ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
+
+//        Log.d("Before adding item", String.valueOf(newFoodListArray.size()));
+        newFoodListArray.remove(foodItemPosition);
+//        Log.d("Remove item", String.valueOf(newFoodListArray.size()));
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("foodList", gson.toJson(newFoodListArray));
+        editor.apply();
+
+        Intent intent = new Intent(this, FoodListActivity.class);
+        startActivity(intent);
+    }
+
+    public void setAllButtonClicked(View button){
+        Intent intent = new Intent(this, FoodListActivity.class);
+        startActivity(intent);
+    }
+
 }
