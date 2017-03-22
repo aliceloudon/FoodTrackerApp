@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Theme.AppTheme.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="MyCardViewStyle" parent="Theme.AppCompat.Light">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="contentPaddingBottom">24dp</item>
+        <item name="contentPaddingTop">24dp</item>
+        <item name="contentPaddingLeft">16dp</item>
+        <item name="contentPaddingRight">16dp</item>
+        <item name="cardBackgroundColor">#F7FAFB</item>
+    </style>
+
+    <style name="Test" parent="Theme.AppCompat.NoActionBar" />
+
 </resources>

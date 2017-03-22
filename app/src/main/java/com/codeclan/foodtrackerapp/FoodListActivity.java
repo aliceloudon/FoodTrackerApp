@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
@@ -81,6 +83,8 @@ public class FoodListActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
+
+        Toast.makeText(this, "Item has been deleted!", Toast.LENGTH_LONG).show();
     }
 
     public void setAllButtonClicked(View button){

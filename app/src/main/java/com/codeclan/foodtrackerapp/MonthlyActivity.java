@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -206,6 +207,8 @@ public class MonthlyActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
+
+        Toast.makeText(this, "Item has been deleted!", Toast.LENGTH_LONG).show();
     }
 
     public void setAllButtonClicked(View button){
