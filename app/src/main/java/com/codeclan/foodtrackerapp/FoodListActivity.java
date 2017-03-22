@@ -83,6 +83,11 @@ public class FoodListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setAllButtonClicked(View button){
+        Intent intent = new Intent(this, FoodListActivity.class);
+        startActivity(intent);
+    }
+
     public void setJanuaryButtonClicked(View button){
         String input = "January";
         Intent intent = new Intent(this, MonthlyActivity.class);
@@ -125,5 +130,46 @@ public class FoodListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setJulyButtonClicked(View button){
+        String input = "July";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setAugustButtonClicked(View button){
+        String input = "August";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setSeptemberButtonClicked(View button){
+        String input = "September";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setOctoberButtonClicked(View button){
+        String input = "October";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setNovemberButtonClicked(View button){
+        String input = "November";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
+
+    public void setDecemberButtonClicked(View button){
+        String input = "December";
+        Intent intent = new Intent(this, MonthlyActivity.class);
+        intent.putExtra("input", input);
+        startActivity(intent);
+    }
 
 }

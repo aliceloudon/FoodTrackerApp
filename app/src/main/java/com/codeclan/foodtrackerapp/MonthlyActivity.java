@@ -107,6 +107,78 @@ public class MonthlyActivity extends AppCompatActivity {
             }
         }
 
+        else if (input.equals("July")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("July")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("August")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("August")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("September")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("September")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("October")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("October")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("November")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("November")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
+        else if (input.equals("December")) {
+            for (int i = 0; i < newFoodListArray.size(); i++) {
+                if (!newFoodListArray.get(i).getMonth().equals("December")) {
+                    objectsToRemove.add(newFoodListArray.get(i));
+                }
+            }
+
+            for (FoodItem foodItem : objectsToRemove) {
+                newFoodListArray.remove(foodItem);
+            }
+        }
+
         FoodListAdapter foodListAdapter = new FoodListAdapter(this,newFoodListArray);
 
         ListView listView = (ListView)findViewById(R.id.list);
