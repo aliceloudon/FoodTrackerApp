@@ -23,25 +23,17 @@ import java.util.Comparator;
 
 public class FoodListActivity extends AppCompatActivity {
 
-    public static final String FOODLIST = "foodList";
-
     Button newDiaryEntry;
-    ArrayList<FoodItem> list;
+    ArrayList<FoodItem> foodItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_list);
 
-        Gson gson = new Gson();
-        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
+        foodItemList = Manager.getListFromSharedPreferences(this);
 
-        String listAsString = sharedPreferences.getString("foodList", "whatever");
-
-        TypeToken<ArrayList<FoodItem>> typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
-        list = gson.fromJson(listAsString,typeNewFoodListArray.getType());
-
-        FoodListAdapter foodListAdapter = new FoodListAdapter(this,list);
+        FoodListAdapter foodListAdapter = new FoodListAdapter(this, foodItemList);
 
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(foodListAdapter);
@@ -63,23 +55,13 @@ public class FoodListActivity extends AppCompatActivity {
     }
 
     public void setDeleteButtonClicked(View button){
+
         int foodItemPosition = (int) button.getTag();
 
-        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
-        String listAsString = sharedPreferences.getString("foodList", "whatever");
+        foodItemList = Manager.getListFromSharedPreferences(this);
+        foodItemList.remove(foodItemPosition);
 
-        Gson gson = new Gson();
-
-        TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
-        ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
-
-//        Log.d("Before adding item", String.valueOf(newFoodListArray.size()));
-        newFoodListArray.remove(foodItemPosition);
-//        Log.d("Remove item", String.valueOf(newFoodListArray.size()));
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("foodList", gson.toJson(newFoodListArray));
-        editor.apply();
+        Manager.saveListInSharedPreferences(this, foodItemList);
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);

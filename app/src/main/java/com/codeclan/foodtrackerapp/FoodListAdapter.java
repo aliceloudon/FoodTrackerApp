@@ -24,9 +24,7 @@ public class FoodListAdapter extends ArrayAdapter<FoodItem> {
     public View getView(int position, View listItemView, ViewGroup parent){
 
         if (listItemView == null) {
-
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.food_item, parent, false);
-
         }
 
         FoodItem currentFoodItem = getItem(position);
