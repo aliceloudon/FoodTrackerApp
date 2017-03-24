@@ -32,7 +32,7 @@
                 android:backgroundTint="#026470"
                 android:textSize="16sp"
                 android:textColor="#ffffff"
-                android:onClick="setJanuaryButtonClicked"/>
+                android:onClick="setMonthButtonClicked"/>
 
             <Button
                 android:id="@+id/february_button"

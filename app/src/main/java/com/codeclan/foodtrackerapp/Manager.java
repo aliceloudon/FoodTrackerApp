@@ -17,11 +17,11 @@ import java.util.ArrayList;
 
 public class Manager {
 
-    public static final String FOODLIST = "foodList";
+    public static final String LIST = "foodList";
 
     public static ArrayList<FoodItem> getListFromSharedPreferences(Context context){
 
-        SharedPreferences sharedPreferences = context.getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(LIST, Context.MODE_PRIVATE);
         String foodList = sharedPreferences.getString("foodList", "Nothing here");
 
         Gson gson = new Gson();
@@ -34,7 +34,7 @@ public class Manager {
 
         // By making these methods static I can just call Manager.______ in FoodListActivity rather than having to make a new manager object each time.
 
-        SharedPreferences sharedPreferences = context.getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(LIST, Context.MODE_PRIVATE);
 
         Gson gson = new Gson();
 

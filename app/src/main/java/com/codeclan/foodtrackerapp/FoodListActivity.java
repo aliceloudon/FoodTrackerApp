@@ -17,11 +17,14 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
-public class FoodListActivity extends AppCompatActivity {
+public class FoodListActivity extends AppCompatActivity implements Serializable {
 
     Button newDiaryEntry;
     ArrayList<FoodItem> foodItemList;
@@ -74,88 +77,109 @@ public class FoodListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void setJanuaryButtonClicked(View button){
-        String input = "January";
+    public void setMonthButtonClicked(View button){
+
+        HashMap<String, Integer> months = new HashMap<>();
+        months.put("January", 1);
+        months.put("February", 2);
+        months.put("March", 3);
+        months.put("April", 4);
+        months.put("May", 5);
+        months.put("June", 6);
+        months.put("July", 7);
+        months.put("August", 8);
+        months.put("September", 9);
+        months.put("October", 10);
+        months.put("November", 11);
+        months.put("December", 12);
+
         Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
+        intent.putExtra("input", months);
         startActivity(intent);
     }
 
-    public void setFebruaryButtonClicked(View button){
-        String input = "February";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
 
-    public void setMarchButtonClicked(View button){
-        String input = "March";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
+    // OR I define a new ArrayList months = ("January", "February", "March", "April") etc
+    // Cast it to a string
+    // Cast it back to an ArrayList in MonthlyActivity
+    // and loop through the ArrayList there.
 
-    public void setAprilButtonClicked(View button){
-        String input = "April";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
 
-    public void setMayButtonClicked(View button){
-        String input = "May";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setJuneButtonClicked(View button){
-        String input = "June";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setJulyButtonClicked(View button){
-        String input = "July";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setAugustButtonClicked(View button){
-        String input = "August";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setSeptemberButtonClicked(View button){
-        String input = "September";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setOctoberButtonClicked(View button){
-        String input = "October";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setNovemberButtonClicked(View button){
-        String input = "November";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
-
-    public void setDecemberButtonClicked(View button){
-        String input = "December";
-        Intent intent = new Intent(this, MonthlyActivity.class);
-        intent.putExtra("input", input);
-        startActivity(intent);
-    }
+//    public void setFebruaryButtonClicked(View button){
+//        String input = "February";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setMarchButtonClicked(View button){
+//        String input = "March";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setAprilButtonClicked(View button){
+//        String input = "April";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setMayButtonClicked(View button){
+//        String input = "May";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setJuneButtonClicked(View button){
+//        String input = "June";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setJulyButtonClicked(View button){
+//        String input = "July";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setAugustButtonClicked(View button){
+//        String input = "August";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setSeptemberButtonClicked(View button){
+//        String input = "September";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setOctoberButtonClicked(View button){
+//        String input = "October";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setNovemberButtonClicked(View button){
+//        String input = "November";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
+//
+//    public void setDecemberButtonClicked(View button){
+//        String input = "December";
+//        Intent intent = new Intent(this, MonthlyActivity.class);
+//        intent.putExtra("input", input);
+//        startActivity(intent);
+//    }
 
 }

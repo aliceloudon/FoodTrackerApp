@@ -13,203 +13,58 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MonthlyActivity extends AppCompatActivity {
 
-    public static final String FOODLIST = "foodList";
+    ArrayList<FoodItem> foodItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_list);
 
-        Gson gson = new Gson();
-        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
-        String listAsString = sharedPreferences.getString("foodList", "whatever");
-
-        TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
-        ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
+        foodItemList = Manager.getListFromSharedPreferences(this);
 
         ArrayList<FoodItem>objectsToRemove = new ArrayList<>();
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        String input = extras.getString("input");
-
-        if (input.equals("January")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("January")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        if (input.equals("February")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("February")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        if (input.equals("March")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("March")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("April")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("April")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("May")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("May")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("June")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("June")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("July")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("July")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("August")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("August")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("September")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("September")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("October")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("October")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("November")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("November")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        else if (input.equals("December")) {
-            for (int i = 0; i < newFoodListArray.size(); i++) {
-                if (!newFoodListArray.get(i).getMonth().equals("December")) {
-                    objectsToRemove.add(newFoodListArray.get(i));
-                }
-            }
-
-            for (FoodItem foodItem : objectsToRemove) {
-                newFoodListArray.remove(foodItem);
-            }
-        }
-
-        FoodListAdapter foodListAdapter = new FoodListAdapter(this,newFoodListArray);
+        FoodListAdapter foodListAdapter = new FoodListAdapter(this, foodItemList);
 
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(foodListAdapter);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        HashMap<String, Integer> input = extras.getString("input");
+
+
+        if (input.equals("January")) {
+            for (int i = 0; i < foodItemList.size(); i++) {
+                if (!foodItemList.get(i).getMonth().equals("January")) {
+                    objectsToRemove.add(foodItemList.get(i));
+                }
+            }
+            for (FoodItem foodItem : objectsToRemove) {
+                foodItemList.remove(foodItem);
+            }
+        }
     }
 
     public void setDeleteButtonClicked(View button){
+
         int foodItemPosition = (int) button.getTag();
 
-        SharedPreferences sharedPreferences = getSharedPreferences(FOODLIST, Context.MODE_PRIVATE);
-        String listAsString = sharedPreferences.getString("foodList", "whatever");
+        foodItemList = Manager.getListFromSharedPreferences(this);
+        foodItemList.remove(foodItemPosition);
 
-        Gson gson = new Gson();
-
-        TypeToken<ArrayList<FoodItem>>typeNewFoodListArray = new TypeToken<ArrayList<FoodItem>>(){};
-        ArrayList<FoodItem>newFoodListArray = gson.fromJson(listAsString,typeNewFoodListArray.getType());
-
-//        Log.d("Before adding item", String.valueOf(newFoodListArray.size()));
-        newFoodListArray.remove(foodItemPosition);
-//        Log.d("Remove item", String.valueOf(newFoodListArray.size()));
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("foodList", gson.toJson(newFoodListArray));
-        editor.apply();
+        Manager.saveListInSharedPreferences(this, foodItemList);
 
         Intent intent = new Intent(this, FoodListActivity.class);
         startActivity(intent);
 
         Toast.makeText(this, "Item has been deleted!", Toast.LENGTH_LONG).show();
     }
+
 
     public void setAllButtonClicked(View button){
         Intent intent = new Intent(this, FoodListActivity.class);
